@@ -1,42 +1,48 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
           "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-<head>
-  <title><ui:insert name="title">Default title</ui:insert></title>
-</head>
-
-<body>
-<ui:debug hotkey="x" rendered="#{initParam['javax.faces.FACELETS_DEVELOPMENT']}"/>
-
-<div id="header">
-    <ui:insert name="header">
-    	MY DEFAULT HEADER<hr/>
-    	<!--  include your header file or uncomment the include below and create header.xhtml in this directory -->
-    	<!-- <ui:include src="header.xhtml"/> -->
-    </ui:insert>
-</div>
-
-
-<div id="content">
-  <ui:insert name="content">
-    	Content area.  See comments below this line in the source.
-    	<!--  include your content file or uncomment the include below and create content.xhtml in this directory -->
-	  	<!-- <div> -->
-    	<!-- <ui:include src="content.xhtml"/> -->  
-    	<!-- </div> -->
-  </ui:insert>
-</div>
-
-<div id="footer">
-  <ui:insert name="footer">
-    	<br/>
-    	MY DEFAULT FOOTER
-    	<!--  include your header file or uncomment the include below and create footer.xhtml in this directory -->
-		<!--<ui:include src="footer.xhtml"/>  -->
-  </ui:insert>
-</div>
-
-</body>
-
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>	  
+	<h:head>
+	  <title><ui:insert name="title">Default title</ui:insert></title>
+	  <script src="js/jquery-3.3.1.min.js"></script> <!-- non auto fermable --> <!-- utilisation de js -->
+	  <script src="js/bootstrap.bundle.min.js"></script>
+	  <script src="js/my-nav.js"></script> <!-- default subapges and navigations -->
+	  <link rel="stylesheet" href="./css/bootstrap.css"/> <!-- utilisation de bootstrap -->
+	  <link rel="stylesheet" href="./css/style.css"/>
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- for responsive bootstrap on mobile device -->
+	</h:head>
+	
+	<h:body>
+	<ui:debug hotkey="x" rendered="#{initParam['javax.faces.FACELETS_DEVELOPMENT']}"/>
+	
+	<div id="header">
+	    <ui:insert name="header">
+			<ui:include src="header.xhtml"/>
+	    </ui:insert>
+	</div>
+	
+	<!-- partout où il y a ui, ça peut être remplacé -->
+	<div id="content" class="container-fluid">
+	<br/>
+	  <ui:insert name="content">
+	    	Content area.  See comments below this line in the source.
+	    	<!--  include your content file or uncomment the include below and create content.xhtml in this directory -->
+		  	<!-- <div> -->
+	    	<!-- <ui:include src="content.xhtml"/> -->  
+	    	<!-- </div> -->
+	  </ui:insert>
+	</div>
+	
+	<div id="footer">
+	  <ui:insert name="footer">
+	    	<br/>    	
+	    	<ui:include src="footer.xhtml"/>
+	  </ui:insert>
+	</div>
+	
+	</h:body>
+</f:view>
 </html>

@@ -6,16 +6,16 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-<ui:composition template="/templates/common.xhtml">
+<ui:composition template="/templates/common.xhtml"> <!-- se base sur le template common -->
 	<ui:define name="title">calcul de racine carrée</ui:define>
 	<ui:define name="content">
-	    <h:messages /> <!-- h:messages affiche des messages d'erreur s'ils existent -->
+	    <h:messages class="erreur"/> <!-- h:messages affiche des messages d'erreur s'ils existent -->
 		<h:form>
-			x : <h:inputText value="#{calculBean.x}">
+			x : <h:inputText value="#{calculBean.x}"> <!-- petit piège : la classe commence par une minuscule -->
 			<f:validateDoubleRange minimum="10" maximum="99"/>
 			</h:inputText> <br/>
 			<h:commandButton value="caculer racine carrée" action="#{calculBean.calculerRacine}"></h:commandButton>
-		</h:form>
+		</h:form> <!-- toutes les listes déroulantes doivent être dans un form -->
 		res: <h:outputText value="#{calculBean.res}"></h:outputText>
 	</ui:define>
 </ui:composition>
